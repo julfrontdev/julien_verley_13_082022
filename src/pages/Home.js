@@ -1,14 +1,23 @@
 import React from "react";
-// import logo from "./logo.png";
+import Features from "../components/Features";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
+import HeaderNavSignIn from "../components/HeaderNavSignIn";
+import Hero from "../components/Hero";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <div className="home">
-        <Header />
+        <div>
+          <Header />
+          <HeaderNavSignIn />
+        </div>
+        <Hero />
+        <Features />
+        <Footer />
       </div>
-    </div>
+    </>
   );
 };
 

@@ -2,8 +2,12 @@ import React from "react";
 
 const Logo = () => {
   return (
-    <div>
-      <img src="/logo.png" alt="logo Argent Bank" />
+    <div className="header-logo">
+      <img
+        className="header-logo-image"
+        src="../assets/img/logo.png"
+        alt="Argent Bank Logo"
+      />
     </div>
   );
 };
