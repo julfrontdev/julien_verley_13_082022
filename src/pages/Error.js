@@ -1,12 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
+import HeaderLogo from "../components/HeaderLogo";
+import HeaderNavSignIn from "../components/HeaderNavSignIn";
 
 const Error = () => {
   return (
     <div className="error404">
-      <Header />
+      <div className="header">
+        <HeaderLogo />
+        <HeaderNavSignIn />
+      </div>
       <div className="error-content">
         <h2 className="error-message">Page inexistante...</h2>
         <NavLink to="/">

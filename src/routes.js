@@ -1,3 +1,4 @@
+export const counter = "/counter";
 export const home = "/";
-export const signin = "/signin";
-export const user = "/user.html";
+export const login = "/login";
+export const profile = "/profile.html";
