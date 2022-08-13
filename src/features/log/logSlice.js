@@ -6,6 +6,8 @@ export const logSlice = createSlice({
   name: "log",
   initialState: { value: undefined },
   reducers: {
+    // REDUCER = REDUIT L'ETAT ACTUEL EN FONCTION DE L'ACTION À UN NOUVEL ETAT
+    // ACTION = { TYPE: ...(P.EX ADD, DELETE..), PAYLOAD: DONNÉE }
     addEmail: (state, action) => {
       // ou // addEmail: (state, {payload}) => {
       // { type: "log/addEmail", payload: "" }
@@ -28,6 +30,8 @@ export const logSlice = createSlice({
   },
 });
 
+// ACTION CREATORS = are generated for each case reducer function
+// Each action creator returns an action object with a type property (and a payload property)
 export const { addEmail, addPassword, deletedEmail, deletePassword } =
   logSlice.actions;
 
