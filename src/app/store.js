@@ -1,13 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
-import logReducer from "../features/log/logSlice";
+import counterReducer from "../features/slices/counterSlice";
+import authReducer from "../features/slices/authSlice";
 
-// Ajouter des slices avec des reducers (addTasks, deleteTasks etc.) cf. Lior Chamla 34"20'
+const reducer = {
+  counter: counterReducer,
+  auth: authReducer,
+};
 
-// export default configureStore({
-export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-    log: logReducer,
-  },
+const store = configureStore({
+  reducer: reducer,
+  devTools: true,
 });
+export default store;

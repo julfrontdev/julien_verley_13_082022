@@ -2,21 +2,20 @@ import React from "react";
 import Footer from "../components/Footer";
 import HeaderLogo from "../components/HeaderLogo";
 import HeaderNavSignIn from "../components/HeaderNavSignIn";
-import SignInForm from "../components/SignInForm";
-import LogForm from "../features/log/LogForm";
+import AuthForm from "../features/auth/AuthForm";
+//
 
-const LogIn = () => {
+const Login = () => {
   return (
     <>
       <div className="header">
         <HeaderLogo />
         <HeaderNavSignIn />
       </div>
-      {/* <SignInForm /> */}
-      <LogForm />
+      <AuthForm />
       <Footer />
     </>
   );
 };
 
-export default LogIn;
+export default Login;

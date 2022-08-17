@@ -1,24 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  value: 1000,
-};
-
 export const counterSlice = createSlice({
   name: "counter",
-  initialState,
+  initialState: {
+    count: 0,
+  },
   reducers: {
+    // Add non-async reducers here
     increment: (state) => {
-      // (ajouter action) si on veut ajouter une action, ensuite action { type: "increment", payload: 1 }
-      state.value += 10;
+      state.count += 1;
     },
     decrement: (state) => {
-      state.value -= 10;
+      state.count -= 1;
     },
-    // ici le action permet de faire passer le payload (la donnée) // ? += ?
+    // ici le action permet de faire passer le payload, la value que l'on veut, pex 33
     incrementByAmount: (state, action) => {
-      state.value += action.payload;
+      state.count += action.payload;
     },
+  },
+  extraReducers: {
+    // Add async reducers here
   },
 });
 
