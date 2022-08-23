@@ -4,17 +4,23 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Error from "./pages/Error";
 import { home, login, profile } from "./routes";
+import { ToastContainer } from "react-toastify"; // TM
+import "react-toastify/dist/ReactToastify.css"; // TM
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={home} element={<Home />} />
-        <Route path={login} element={<Login />} />
-        <Route path={profile} element={<Profile />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path={home} element={<Home />} />
+          <Route path={login} element={<Login />} />
+          <Route path={profile} element={<Profile />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </BrowserRouter>
+      {/* TM */}
+      <ToastContainer />
+    </>
   );
 }
 

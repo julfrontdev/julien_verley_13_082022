@@ -7,8 +7,7 @@ import {
 } from "../slices/counterSlice";
 
 export function Counter() {
-  const { count } = useSelector((state) => state.counter);
-  // const count = useSelector((state) => state.counter.count);
+  const { count } = useSelector((state) => state.counter); // useSelector permet de récupérer le state du store
   const dispatch = useDispatch();
 
   return (
@@ -22,6 +21,7 @@ export function Counter() {
         </button>
         {/* display: */}
         <span>{count}</span>
+        {/* display: */}
         <button
           aria-label="Decrement value"
           onClick={() => dispatch(decrement())}

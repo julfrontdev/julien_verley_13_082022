@@ -3,13 +3,17 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import Footer from "../components/Footer";
 import HeaderLogo from "../components/HeaderLogo";
-import HeaderNavUserOrHome from "../components/HeaderNavUserOrHome";
+import HeaderNavSignInOrOut from "../components/HeaderNavSignInOrOut";
 import UserMain from "../components/UserMain";
 import { setUser } from "../features/slices/authSlice";
 
 const Profile = () => {
   const token = useSelector((state) => state.auth.token);
+  const dispatch = useDispatch(); // ajouté
 
+  ////////////////////////////////
+  // Comment utiliser authService ici ? cf. TM 43'
+  ////////////////////////////////
   useEffect(() => {
     axios
       .post(
@@ -23,15 +27,19 @@ const Profile = () => {
       )
       .then((response) => {
         console.log(response.data.body);
-        // dispatch(setUser(response.data.body)); //
+        ///////////////////////////////
+        // ! Problème ! // store auth.user effacé lors du dispatch
+        ///////////////////////////////
+        dispatch(setUser(response.data.body)); // user is the object from the response.data.body
       });
-  }, [token]); // Effect runs only once when token changes
+  }, [token, dispatch]); // Effect runs only once when token and dispatch change
 
   return (
     <>
       <div className="header">
         <HeaderLogo />
-        <HeaderNavUserOrHome />
+        {/* Problème du state auth.user qui devient null avec useSelector, cf. dispatch() dans Profile.js */}
+        <HeaderNavSignInOrOut />
       </div>
       <UserMain />
       <Footer />
