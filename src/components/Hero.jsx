@@ -4,6 +4,7 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="hero-background-image">
+        {/* Antoine : img : est-ce mieux en CSS ? */}
         <img src={"../../assets/img/bank-tree.jpeg"} alt="Hero Background" />
       </div>
       <section className="hero-content">
@@ -13,7 +14,7 @@ const Hero = () => {
         <p className="hero-content-subtitle">High interest rates.</p>
         <p className="hero-content-text">
           Open a savings account with Argent Bank today!
-        </p>{" "}
+        </p>
       </section>
     </div>
   );

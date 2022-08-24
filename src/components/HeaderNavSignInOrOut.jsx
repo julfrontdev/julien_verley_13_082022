@@ -2,29 +2,22 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/slices/authSlice";
-// import { reset } from "../features/slices/authSlice";
 
 const HeaderNavSignInOrOut = () => {
   // TM
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-
-  // Ce que j'avais tenté
-  // const firstName = useSelector((state) => state.auth.user.firstName);
-  // console.log(firstName);
+  // console.log({ user });
 
   // TM
   const onLogout = () => {
-    dispatch(logout());
+    dispatch(logout()); // logout de redux ? ou authService ?
     dispatch(reset());
     navigate("/login"); // Pourquoi ça ne fonctionne pas ?
   };
-  //   // const userData = {
-  //   //   username,
-  //   //   password,
-  //   // };
-  //   dispatchEvent(logout(userData));
+
+  // const firstName = useSelector((state) => state.auth.user.firstName);
 
   return (
     <>
@@ -33,8 +26,11 @@ const HeaderNavSignInOrOut = () => {
           <div className="header-nav-user-or-home">
             <NavLink className="header-item" to="/profile.html">
               <i className="header-item-icon fa fa-user-circle"></i>
-              {/* <div className="header-item-signin-or-out">{firstName}</div> */}
-              <div className="header-item-signin-or-out">static-firstName</div>
+              {/* static data */}
+              {/* <div className="header-item-signin-or-out">static-firstName</div> */}
+              {/* dynamic data */}
+              {/* Antoine : user.firstName, bonne pratique ?, pourquoi le même useSelectore ne fonctionne pas dans UserMain.jsx ? */}
+              <div className="header-item-signin-or-out">{user.firstName}</div>
             </NavLink>
             <NavLink className="header-item" to="/">
               <i className="header-item-icon fa fa-sign-out"></i>
@@ -55,6 +51,7 @@ const HeaderNavSignInOrOut = () => {
             <i className="header-item-icon fa fa-user-circle"></i>
             <div className="header-item-signin-or-out">Sign In</div>
           </NavLink>
+          {/*  */}
         </div>
       )}
     </>

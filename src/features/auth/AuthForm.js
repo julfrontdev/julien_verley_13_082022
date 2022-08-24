@@ -17,6 +17,8 @@ const AuthForm = () => {
 
   // Destructuring formData
   const { username, password } = formData;
+  // const username = formData.username
+  // const password = formData.password
 
   // Initialize dispatch and navigate
   const navigate = useNavigate();
@@ -30,6 +32,7 @@ const AuthForm = () => {
   // TM
   ////////////////////////////////
   // Revoir le reset qui remet tout à zéro, même quand successs = true
+  ////////////////////////////////
   useEffect(() => {
     if (isError) {
       toast.error(message);
@@ -40,15 +43,15 @@ const AuthForm = () => {
       // state.isSuccess = true // écriture à revoir
     }
     dispatch(reset());
-    // }, [user, isError, isSuccess, message, navigate, dispatch]);
   }, [user, isError, isSuccess, message, navigate, dispatch]);
-  ////////////////////////////////
 
-  // setFormData contains the values of the form inputs in one object { username, password }
+  // setFormData: values of form inputs in object { username, password }
   const onChange = (e) => {
     setFormData((prevState) => ({
-      ...prevState, // spread operator keeps previous state of the existing object and add new element to it while still preserving the original object
-      [e.target.name]: e.target.value, // [e.target.name] = key of the input field; updates only the field that was changed; e.target.value = value of the input field typed in
+      ...prevState, // spread operator keeps previous state and add new element
+      [e.target.name]: e.target.value,
+      // [e.target.name] = key of the input field
+      // e.target.value = value of the input field typed in
     }));
   };
 
@@ -64,7 +67,7 @@ const AuthForm = () => {
       })
       .then((response) => {
         console.log(response.data.body.token);
-        dispatch(setToken(response.data.body.token)); // token is the object from the response.data.body
+        dispatch(setToken(response.data.body.token)); // dispatch response to setToken in authSlice
         navigate("/profile");
       });
 
@@ -94,8 +97,9 @@ const AuthForm = () => {
             <input
               type="email"
               id="username"
-              name="username"
               // name = destructured "username" from our state formData
+              name="username"
+              // what is typed in the input field
               value={username}
               // function onChange is called when the value of the input field is changed
               onChange={onChange}
@@ -107,12 +111,12 @@ const AuthForm = () => {
             <input
               type="password"
               id="password"
-              name="password"
               // password = destructured "password" from our state formData
+              name="password"
+              // what is typed in the input field:
               value={password}
               // function onChange is called when the value of the input field is changed
               onChange={onChange}
-              // ou bien // onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="input-remember">

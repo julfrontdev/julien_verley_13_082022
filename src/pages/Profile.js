@@ -12,7 +12,7 @@ const Profile = () => {
   const dispatch = useDispatch(); // ajouté
 
   ////////////////////////////////
-  // Comment utiliser authService ici ? cf. TM 43'
+  // Utiliser authService ici ? cf. TM 43'
   ////////////////////////////////
   useEffect(() => {
     axios
@@ -30,7 +30,7 @@ const Profile = () => {
         ///////////////////////////////
         // ! Problème ! // store auth.user effacé lors du dispatch
         ///////////////////////////////
-        dispatch(setUser(response.data.body)); // user is the object from the response.data.body
+        dispatch(setUser(response.data.body));
       });
   }, [token, dispatch]); // Effect runs only once when token and dispatch change
 

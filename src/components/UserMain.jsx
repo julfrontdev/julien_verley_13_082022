@@ -5,14 +5,19 @@ const UserMain = () => {
   // const firstName = useSelector((state) => state.auth.user.firstName);
   // const lastName = useSelector((state) => state.auth.user.lastName);
 
+  const { user } = useSelector((state) => state.auth);
+  console.log({ user }); // Antoine, fonctionne, mais pas possible d'avoir le render en dynamique... pourquoi ?
+
   return (
     <div className="user-main bg-dark">
       <div className="user-main-header">
         <h1>
           Welcome back <br />
-          {/* {firstName} */}
-          {/* {lastName} */}
-          static-firstName static-lastName
+          {/* dynamic datas */}
+          {/* {user.firstName} */}
+          {/* {user.lastName} */}
+          {/* static datas */}
+          ...static-firstName ...static-lastName
         </h1>
         <button className="edit-button">Edit Name</button>
       </div>

@@ -44,7 +44,7 @@ export const authSlice = createSlice({
     // Pas avec TM, pourquoi ?
     setUser: (state, action) => {
       state.user = action.payload; // action.payload is the user object
-      // return state
+      // return state; //
     },
     // Pas avec TM, pourquoi ?
     setToken: (state, action) => {
@@ -63,6 +63,7 @@ export const authSlice = createSlice({
   // TM
   extraReducers: (builder) => {
     builder
+      // test  test
       // login, cf. f° login above
       // .addCase(login.pending, (state) => {
       //   state.isLoading = true; // fonctionne
