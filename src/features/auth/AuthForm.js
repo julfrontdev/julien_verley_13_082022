@@ -59,7 +59,6 @@ const AuthForm = () => {
   // Form submit handler
   const handleSubmit = (e) => {
     e.preventDefault();
-
     axios
       .post("http://localhost:3001/api/v1/user/login", {
         email: username,
@@ -70,14 +69,6 @@ const AuthForm = () => {
         dispatch(setToken(response.data.body.token)); // dispatch response to setToken in authSlice
         navigate("/profile");
       });
-
-    // TM
-    // const userData = {
-    //   username,
-    //   password,
-    // };
-    // TM
-    // dispatch(login(userData));
   };
   ////////////////////////////////
 

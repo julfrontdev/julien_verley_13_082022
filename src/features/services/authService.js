@@ -18,6 +18,7 @@
 
 // ////////////////////////////////
 // // Rien dans le loaclStorage...
+// mais pourquoi sans cette fonction, l'user n'est pas effacé ?
 // ////////////////////////////////
 // logout user
 const logout = () => {

@@ -41,12 +41,12 @@ export const authSlice = createSlice({
   reducers: {
     // Non-async reducers:
     ////////////////////////////////
-    // Pas avec TM, pourquoi ?
+    // Pas avec TM
     setUser: (state, action) => {
       state.user = action.payload; // action.payload is the user object
       // return state; //
     },
-    // Pas avec TM, pourquoi ?
+    // Pas avec TM
     setToken: (state, action) => {
       state.token = action.payload;
       state.isSuccess = true;

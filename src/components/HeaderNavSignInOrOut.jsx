@@ -29,7 +29,7 @@ const HeaderNavSignInOrOut = () => {
               {/* static data */}
               {/* <div className="header-item-signin-or-out">static-firstName</div> */}
               {/* dynamic data */}
-              {/* Antoine : user.firstName, bonne pratique ?, pourquoi le même useSelectore ne fonctionne pas dans UserMain.jsx ? */}
+              {/* Antoine : pourquoi le même useSelectore ne fonctionne pas dans UserMain.jsx ? */}
               <div className="header-item-signin-or-out">{user.firstName}</div>
             </NavLink>
             <NavLink className="header-item" to="/">

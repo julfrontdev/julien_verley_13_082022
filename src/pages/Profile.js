@@ -27,10 +27,11 @@ const Profile = () => {
       )
       .then((response) => {
         console.log(response.data.body);
+        dispatch(setUser(response.data.body)); // OK
         ///////////////////////////////
-        // ! Problème ! // store auth.user effacé lors du dispatch
+        // ! Problème !
+        // store auth.user effacé lors du useSelector dans UserMain + HeaderNavSignInOrOut
         ///////////////////////////////
-        dispatch(setUser(response.data.body));
       });
   }, [token, dispatch]); // Effect runs only once when token and dispatch change
 
