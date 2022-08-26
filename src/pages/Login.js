@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../components/Footer";
 import HeaderLogo from "../components/HeaderLogo";
 import HeaderNavSignIn from "../components/HeaderNavSignIn";
+import HeaderNavSignInOrOut from "../components/HeaderNavSignInOrOut";
 import AuthForm from "../features/auth/AuthForm";
 //
 
@@ -10,7 +11,8 @@ const Login = () => {
     <>
       <div className="header">
         <HeaderLogo />
-        <HeaderNavSignIn />
+        {/* <HeaderNavSignIn /> */}
+        <HeaderNavSignInOrOut />
       </div>
       <AuthForm />
       <Footer />

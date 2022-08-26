@@ -1,29 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 const UserMain = () => {
-  // const firstName = useSelector((state) => state.auth.user.firstName);
-  // const lastName = useSelector((state) => state.auth.user.lastName);
-
-  //////////////////////////////
-  // const { user } = useSelector((state) => state.auth);
+  const [isEditMode, setIsEditMode] = useState(false);
   const user = useSelector((state) => state.auth.user);
-  console.log({ user });
-  // Antoine, user s'affiche (console), mais pas possible d'avoir le rendu dynamique...
-  //////////////////////////////
+  console.log({ user }); //
 
   return (
     <div className="user-main bg-dark">
       <div className="user-main-header">
-        <h1>
-          Welcome back <br />
-          {/* dynamic datas */}
-          {/* {user.firstName} */}
-          {/* {user.lastName} */}
-          {/* static datas */}
-          static-firstName* static-lastName*
-        </h1>
-        <button className="edit-button">Edit Name</button>
+        {/* Vérifier que user pour récupérer les données dans Redux store via userSelector */}
+        {user && !isEditMode && (
+          <>
+            <h1>
+              Welcome back <br />
+              {user.firstName} {user.lastName}
+            </h1>
+            {/* Après */}
+            <button
+              className="edit-button"
+              onClick={() => setIsEditMode(!isEditMode)}
+            >
+              Edit Name
+            </button>
+          </>
+        )}
+        {isEditMode && (
+          <div>
+            <h1>
+              Welcome back <br />
+            </h1>
+            <input
+              className="edit-input"
+              type="text"
+              name="firstname"
+              placeholder="Firstname"
+            />
+            <input
+              className="edit-input"
+              type="text"
+              name="lastname"
+              placeholder="Lastname"
+            />
+            {/* Bouton sauvegarder => onclick API PUT + action redux updateUser */}
+            {/* A revoir : */}
+            {/* <br />
+            <button className="edit-button">Cancel</button> */}
+            {/* Après */}
+            <button className="edit-button">Save</button>
+            <button
+              className="edit-button"
+              onClick={() => setIsEditMode(!isEditMode)}
+            >
+              Edit Name
+            </button>
+          </div>
+        )}
+        {/* A faire : quand click, supprimer firstN lastN et remplacer par deux champs pour pouvoir éditer , bouton sauvegarder  */}
+        {/* au clic sur sauvegarder, API PUT /user/profile : envoyer nouveaux first last, màj redux (nouvelle action updateUser, nouvelles données)  */}
+        {/* Avant */}
+        {/* <button
+          className="edit-button"
+          onClick={() => setIsEditMode(!isEditMode)}
+        >
+          Edit Name
+        </button> */}
       </div>
       <h2 className="sr-only">Accounts</h2>
       <section className="user-account">

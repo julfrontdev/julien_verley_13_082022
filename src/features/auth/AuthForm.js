@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react"; // TM
-// import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { useDispatch } from "react-redux";
-import { useDispatch, useSelector } from "react-redux"; // TM
+import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "../slices/authSlice";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify"; // TM
-import { login, reset } from "../slices/authSlice";
 import Spinner from "../../components/Spinner";
 
 const AuthForm = () => {
@@ -16,34 +12,20 @@ const AuthForm = () => {
   }); // default values for formData
 
   // Destructuring formData
-  const { username, password } = formData;
-  // const username = formData.username
-  // const password = formData.password
+  const { username, password } = formData; // const username = formData.username etc.
 
   // Initialize dispatch and navigate
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // Selecting what we need from the state
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.auth
-  ); // TM
+  const { user, isLoading, isSuccess } = useSelector((state) => state.auth);
 
-  // TM
-  ////////////////////////////////
-  // Revoir le reset qui remet tout à zéro, même quand successs = true
-  ////////////////////////////////
   useEffect(() => {
-    if (isError) {
-      toast.error(message);
-    }
-    // if (isSuccess || user) {
-    if (isSuccess) {
+    if (user) {
       navigate("/profile");
-      // state.isSuccess = true // écriture à revoir
     }
-    dispatch(reset());
-  }, [user, isError, isSuccess, message, navigate, dispatch]);
+  }, [user, isSuccess, navigate, dispatch]);
 
   // setFormData: values of form inputs in object { username, password }
   const onChange = (e) => {
@@ -55,7 +37,6 @@ const AuthForm = () => {
     }));
   };
 
-  ////////////////////////////////
   // Form submit handler
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -70,8 +51,8 @@ const AuthForm = () => {
         navigate("/profile");
       });
   };
-  ////////////////////////////////
 
+  // Antoine, compliqué à faire ?
   if (isLoading) {
     return <Spinner />;
   }
@@ -102,11 +83,8 @@ const AuthForm = () => {
             <input
               type="password"
               id="password"
-              // password = destructured "password" from our state formData
               name="password"
-              // what is typed in the input field:
               value={password}
-              // function onChange is called when the value of the input field is changed
               onChange={onChange}
             />
           </div>

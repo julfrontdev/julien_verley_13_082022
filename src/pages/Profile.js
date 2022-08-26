@@ -9,11 +9,8 @@ import { setUser } from "../features/slices/authSlice";
 
 const Profile = () => {
   const token = useSelector((state) => state.auth.token);
-  const dispatch = useDispatch(); // ajouté
+  const dispatch = useDispatch();
 
-  ////////////////////////////////
-  // Utiliser authService ici ? cf. TM 43'
-  ////////////////////////////////
   useEffect(() => {
     axios
       .post(
@@ -27,11 +24,7 @@ const Profile = () => {
       )
       .then((response) => {
         console.log(response.data.body);
-        dispatch(setUser(response.data.body)); // OK
-        ///////////////////////////////
-        // ! Problème !
-        // store auth.user effacé lors du useSelector dans UserMain + HeaderNavSignInOrOut
-        ///////////////////////////////
+        dispatch(setUser(response.data.body));
       });
   }, [token, dispatch]); // Effect runs only once when token and dispatch change
 
@@ -39,7 +32,6 @@ const Profile = () => {
     <>
       <div className="header">
         <HeaderLogo />
-        {/* Problème du state auth.user qui devient null avec useSelector, cf. dispatch() dans Profile.js */}
         <HeaderNavSignInOrOut />
       </div>
       <UserMain />
