@@ -5,8 +5,12 @@ const UserMain = () => {
   // const firstName = useSelector((state) => state.auth.user.firstName);
   // const lastName = useSelector((state) => state.auth.user.lastName);
 
-  const { user } = useSelector((state) => state.auth);
-  console.log({ user }); // Antoine, user s'affiche (console), mais pas possible d'avoir le rendu dynamique...
+  //////////////////////////////
+  // const { user } = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.auth.user);
+  console.log({ user });
+  // Antoine, user s'affiche (console), mais pas possible d'avoir le rendu dynamique...
+  //////////////////////////////
 
   return (
     <div className="user-main bg-dark">
@@ -16,7 +20,8 @@ const UserMain = () => {
           {/* dynamic datas */}
           {/* {user.firstName} */}
           {/* {user.lastName} */}
-          {/* static datas */}static-firstName* static-lastName*
+          {/* static datas */}
+          static-firstName* static-lastName*
         </h1>
         <button className="edit-button">Edit Name</button>
       </div>

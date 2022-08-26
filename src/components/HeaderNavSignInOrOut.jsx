@@ -7,8 +7,12 @@ const HeaderNavSignInOrOut = () => {
   // TM
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
+  //////////////////////////////
+  // const { user } = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.auth.user);
   // console.log({ user });
+  console.log(user);
+  //////////////////////////////
 
   // TM
   const onLogout = () => {
