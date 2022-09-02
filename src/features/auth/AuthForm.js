@@ -10,7 +10,6 @@ const AuthForm = () => {
     username: "",
     password: "",
   }); // default values for formData
-
   // Destructuring formData
   const { username, password } = formData; // const username = formData.username etc.
 
@@ -25,7 +24,7 @@ const AuthForm = () => {
     if (user) {
       navigate("/profile");
     }
-  }, [user, isSuccess, navigate, dispatch]);
+  }, [user, isSuccess, navigate, dispatch]); // inutile ?
 
   // setFormData: values of form inputs in object { username, password }
   const onChange = (e) => {
@@ -46,7 +45,7 @@ const AuthForm = () => {
         password: password,
       })
       .then((response) => {
-        console.log(response.data.body.token);
+        // console.log(response.data.body.token); //
         dispatch(setToken(response.data.body.token)); // dispatch response to setToken in authSlice
         navigate("/profile");
       });
@@ -59,7 +58,6 @@ const AuthForm = () => {
 
   return (
     <main className="main bg-dark">
-      {/* Form */}
       <section className="sign-in-content">
         <i className="fa fa-user-circle sign-in-icon"></i>
         <h1>Sign In</h1>

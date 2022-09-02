@@ -7,7 +7,7 @@ const HeaderNavSignOut = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
-  console.log(user); //
+  // console.log(user); //
 
   const onLogout = () => {
     dispatch(logout());
@@ -16,13 +16,16 @@ const HeaderNavSignOut = () => {
 
   return (
     <div className="header-nav-user-or-home">
-      <NavLink className="header-item" to="/profile.html">
+      <div className="header-item" to="/profile.html">
         <i className="header-item-icon fa fa-user-circle"></i>
         <div className="header-item-signin-or-out">{user.firstName}</div>
-      </NavLink>
+      </div>
       <NavLink className="header-item" to="/">
         <i className="header-item-icon fa fa-sign-out"></i>
-        <div className="header-item-signin-or-out" onClick={onLogout}>
+        <div
+          className="header-item-signin-or-out hover-underline"
+          onClick={onLogout}
+        >
           Sign Out
         </div>
       </NavLink>

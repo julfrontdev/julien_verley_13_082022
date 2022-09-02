@@ -6,10 +6,20 @@ import HeaderLogo from "../components/HeaderLogo";
 import HeaderNavSignInOrOut from "../components/HeaderNavSignInOrOut";
 import UserMain from "../components/UserMain";
 import { setUser } from "../features/slices/authSlice";
+import { useNavigate } from "react-router-dom";
+// import UserAccount from "../components/UserAccount";
 
 const Profile = () => {
   const token = useSelector((state) => state.auth.token);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // if token is null, redirect to login page (if not logged in)
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  });
 
   useEffect(() => {
     axios
@@ -23,7 +33,7 @@ const Profile = () => {
         }
       )
       .then((response) => {
-        console.log(response.data.body);
+        // console.log(response.data.body); //
         dispatch(setUser(response.data.body));
       });
   }, [token, dispatch]); // Effect runs only once when token and dispatch change

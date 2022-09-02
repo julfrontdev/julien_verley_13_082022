@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import HeaderLogo from "../components/HeaderLogo";
 import HeaderNavSignIn from "../components/HeaderNavSignIn";
 import Hero from "../components/Hero";
-// import { Counter } from "../features/counter/Counter";
 
 const Home = () => {
   return (
@@ -14,7 +13,6 @@ const Home = () => {
           <HeaderLogo />
           <HeaderNavSignIn />
         </div>
-        {/* <Counter /> */}
         <br />
         <Hero />
         <Features />

@@ -6,7 +6,7 @@ const HeaderNavSignIn = () => {
     <div className="header-nav-user-or-home">
       <NavLink className="header-item" to="/login">
         <i className="header-item-icon fa fa-user-circle"></i>
-        <div className="header-item-signin-or-out">Sign In</div>
+        <div className="header-item-signin-or-out hover-underline">Sign In</div>
       </NavLink>
     </div>
   );
