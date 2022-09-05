@@ -3,7 +3,6 @@ import Footer from "../components/Footer";
 import HeaderLogo from "../components/HeaderLogo";
 import HeaderNavSignInOrOut from "../components/HeaderNavSignInOrOut";
 import AuthForm from "../features/auth/AuthForm";
-//
 
 const Login = () => {
   return (

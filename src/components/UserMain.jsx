@@ -6,10 +6,12 @@ import { useEffect } from "react";
 import UserAccount from "./UserAccount";
 
 const UserMain = () => {
-  const [isEditMode, setIsEditMode] = useState(false);
-
-  // user is the state from the redux store
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.token);
   const user = useSelector((state) => state.auth.user);
+
+  // Edit name mode
+  const [isEditMode, setIsEditMode] = useState(false);
 
   // Form default values
   const [formData, setFormData] = useState({
@@ -17,6 +19,7 @@ const UserMain = () => {
     lastName: "",
   });
 
+  // Set the form default values to the user's current values (from redux store)
   useEffect(() => {
     if (user) {
       setFormData({
@@ -26,19 +29,12 @@ const UserMain = () => {
     }
   }, [user]);
 
-  // Destructuring formData
   const { firstName, lastName } = formData;
-
-  // Initialize dispatch
-  const dispatch = useDispatch();
-
-  // Selecting what we need from the state
-  const token = useSelector((state) => state.auth.token);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
-      ...prevState, // keep the previous state
-      [e.target.name]: e.target.value, // update the value of the input
+      ...prevState,
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -58,24 +54,20 @@ const UserMain = () => {
         }
       ) //
       .then((response) => {
-        console.log(response.data.body); //
         dispatch(setUser(response.data.body));
         setIsEditMode(false);
       });
   };
-  ///////////////////////////////////////////////////////////////
 
   return (
     <div className="user-main bg-dark">
       <div className="user-main-header">
-        {/* Vérifier que user pour récupérer les données dans Redux store via userSelector */}
         {user && !isEditMode && (
           <>
             <h1>
               Welcome back <br />
               {user.firstName} {user.lastName}
             </h1>
-            {/* Après */}
             <button
               className="edit-button"
               onClick={() => setIsEditMode(!isEditMode)}
@@ -110,16 +102,9 @@ const UserMain = () => {
                   onChange={onChange}
                 />
               </div>
-              {/* Bouton sauvegarder => onclick API PUT + action redux updateUser */}
-              {/* A revoir : */}
-              {/* <br />
-            <button className="edit-button">Cancel</button> */}
-              {/* Après */}
               <button className="edit-button" onClick={handleSubmit}>
                 Save
               </button>
-              {/* onClick=dispatch(updateUser()) */}
-
               <button
                 className="edit-button"
                 onClick={() => setIsEditMode(!isEditMode)}
@@ -129,10 +114,6 @@ const UserMain = () => {
             </form>
           </>
         )}
-        {/* A faire : quand click, supprimer firstN lastN et remplacer par deux champs pour pouvoir éditer, bouton sauvegarder // OK */}
-        {/* au clic sur sauvegarder, API PUT /user/profile : envoyer nouveaux first last, màj redux (nouvelle action updateUser, nouvelles données) // En cours  */}
-        {/*  */}
-        {/* Composant à part */}
       </div>
       <UserAccount />
     </div>

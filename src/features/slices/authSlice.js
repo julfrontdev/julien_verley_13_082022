@@ -11,7 +11,7 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action) => {
-      state.user = action.payload; // action.payload = user object
+      state.user = action.payload; // action.payload = user object from API response { id, email, name, createdAt, updatedAt }
     },
     logout: (state) => {
       state.user = null;

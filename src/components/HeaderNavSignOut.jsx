@@ -7,11 +7,10 @@ const HeaderNavSignOut = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
-  // console.log(user); //
 
   const onLogout = () => {
     dispatch(logout());
-    navigate("/login"); // Antoine : pourquoi ça ne fonctionne pas ?
+    navigate("/login"); /// ne fonctionne pas
   };
 
   return (
