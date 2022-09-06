@@ -1,16 +1,17 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../features/slices/authSlice";
+import { logout } from "./authSlice";
 
 const HeaderNavSignOut = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
 
-  const onLogout = () => {
+  const onLogout = (e) => {
+    e.preventDefault();
     dispatch(logout());
-    navigate("/login"); /// ne fonctionne pas
+    navigate("/login");
   };
 
   return (
@@ -19,7 +20,7 @@ const HeaderNavSignOut = () => {
         <i className="header-item-icon fa fa-user-circle"></i>
         <div className="header-item-signin-or-out">{user.firstName}</div>
       </div>
-      <NavLink className="header-item" to="/">
+      <div className="header-item">
         <i className="header-item-icon fa fa-sign-out"></i>
         <div
           className="header-item-signin-or-out hover-underline"
@@ -27,7 +28,7 @@ const HeaderNavSignOut = () => {
         >
           Sign Out
         </div>
-      </NavLink>
+      </div>
     </div>
   );
 };

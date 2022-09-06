@@ -32,6 +32,9 @@
 }
 
 .header-item-signin-or-out {
+    @media (max-width: 500px) {
+        font-size: 0.9rem;
+    }
     font-weight: bold;
     color: #2c3e50;   
     margin: 0 0.5rem;
@@ -39,4 +42,5 @@
 }
 .hover-underline:hover {
     text-decoration: underline;
+    cursor: pointer;
 }

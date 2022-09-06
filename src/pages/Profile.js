@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import HeaderLogo from "../components/HeaderLogo";
 import HeaderNavSignInOrOut from "../components/HeaderNavSignInOrOut";
 import UserMain from "../components/UserMain";
-import { setUser } from "../features/slices/authSlice";
+import { setUser } from "../components/authSlice";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
@@ -13,7 +13,7 @@ const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // If token is null, redirect to login page (if not logged in)
+  // If token is null, redirect to login page
   useEffect(() => {
     if (!token) {
       navigate("/login");
