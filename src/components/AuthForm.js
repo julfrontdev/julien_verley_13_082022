@@ -5,10 +5,10 @@ import { setToken } from "./authSlice";
 import { useNavigate } from "react-router-dom";
 
 const AuthForm = () => {
-  // Initialize dispatch and navigate
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // Selecting what we need from the state
+
+  // Selecting what we need from the state in the store
   const { user, isSuccess } = useSelector((state) => state.auth);
 
   // Form inputs default values
@@ -18,8 +18,6 @@ const AuthForm = () => {
   });
 
   // Destructuring formData
-  // const username = formData.username
-  // const password = formData.password
   const { username, password } = formData;
 
   useEffect(() => {
@@ -29,16 +27,12 @@ const AuthForm = () => {
   }, [user, isSuccess, navigate, dispatch]);
 
   const onChange = (e) => {
-    // setFormData: values of form inputs are stored in formData
     setFormData((prevState) => ({
       ...prevState,
-      // username: e.target.value
-      // password: e.target.value
       [e.target.name]: e.target.value,
     }));
   };
 
-  // Form submit handler
   const handleSubmit = (e) => {
     e.preventDefault();
     axios

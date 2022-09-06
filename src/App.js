@@ -4,8 +4,6 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Error from "./pages/Error";
 import { home, login, profile } from "./routes";
-import { ToastContainer } from "react-toastify"; // TM
-import "react-toastify/dist/ReactToastify.css"; // TM
 
 function App() {
   return (
@@ -18,7 +16,6 @@ function App() {
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
-      <ToastContainer />
     </>
   );
 }

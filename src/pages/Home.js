@@ -2,7 +2,7 @@ import React from "react";
 import Features from "../components/Features";
 import Footer from "../components/Footer";
 import HeaderLogo from "../components/HeaderLogo";
-import HeaderNavSignIn from "../components/HeaderNavSignIn";
+import HeaderNavSignInOrOut from "../components/HeaderNavSignInOrOut";
 import Hero from "../components/Hero";
 
 const Home = () => {
@@ -11,9 +11,8 @@ const Home = () => {
       <div className="home">
         <div className="header">
           <HeaderLogo />
-          <HeaderNavSignIn />
+          <HeaderNavSignInOrOut />
         </div>
-        <br />
         <Hero />
         <Features />
         <Footer />

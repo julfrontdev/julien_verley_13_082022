@@ -35,7 +35,7 @@ const Profile = () => {
       .then((response) => {
         dispatch(setUser(response.data.body));
       });
-  }, [token, dispatch]); // Effect runs only once when token and dispatch change
+  }, [token, dispatch]);
 
   return (
     <>

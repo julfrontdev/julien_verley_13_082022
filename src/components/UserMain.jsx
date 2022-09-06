@@ -19,7 +19,7 @@ const UserMain = () => {
     lastName: "",
   });
 
-  // Set the form default values to the user's current values (from redux store)
+  // Set the form default values to the user's current values from redux store
   useEffect(() => {
     if (user) {
       setFormData({
