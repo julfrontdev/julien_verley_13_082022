@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "./authSlice";
 
@@ -18,7 +18,12 @@ const HeaderNavSignOut = () => {
     <div className="header-nav-user-or-home">
       <div className="header-item" to="/profile.html">
         <i className="header-item-icon fa fa-user-circle"></i>
-        <div className="header-item-signin-or-out">{user.firstName}</div>
+        <NavLink
+          to="/profile"
+          className="header-item-signin-or-out hover-underline"
+        >
+          {user.firstName}
+        </NavLink>
       </div>
       <div className="header-item">
         <i className="header-item-icon fa fa-sign-out"></i>
