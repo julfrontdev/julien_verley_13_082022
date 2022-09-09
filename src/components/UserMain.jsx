@@ -52,7 +52,7 @@ const UserMain = () => {
             Authorization: `Bearer ${token}`,
           },
         }
-      ) //
+      )
       .then((response) => {
         dispatch(setUser(response.data.body));
         setIsEditMode(false);
