@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setUser } from "../components/authSlice";
+import { setUser } from "../feature/authSlice";
 import { useEffect } from "react";
 import UserAccount from "./UserAccount";
 

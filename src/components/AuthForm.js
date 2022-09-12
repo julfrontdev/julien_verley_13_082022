@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setToken } from "./authSlice";
+import { setToken } from "../feature/authSlice";
 import { useNavigate } from "react-router-dom";
 
 const AuthForm = () => {

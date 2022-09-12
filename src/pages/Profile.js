@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import HeaderLogo from "../components/HeaderLogo";
 import HeaderNavSignInOrOut from "../components/HeaderNavSignInOrOut";
 import UserMain from "../components/UserMain";
-import { setUser } from "../components/authSlice";
+import { setUser } from "../feature/authSlice";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
