@@ -34,6 +34,9 @@ const Profile = () => {
       )
       .then((response) => {
         dispatch(setUser(response.data.body));
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, [token, dispatch]);
 

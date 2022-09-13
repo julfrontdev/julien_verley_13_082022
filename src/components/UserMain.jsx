@@ -56,6 +56,9 @@ const UserMain = () => {
       .then((response) => {
         dispatch(setUser(response.data.body));
         setIsEditMode(false);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 

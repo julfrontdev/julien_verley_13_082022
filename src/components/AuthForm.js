@@ -43,6 +43,9 @@ const AuthForm = () => {
       .then((response) => {
         dispatch(setToken(response.data.body.token));
         navigate("/profile");
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 
