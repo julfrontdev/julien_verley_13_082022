@@ -36,7 +36,7 @@ const AuthForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/api/v1/user/login", {
+      .post(`${process.env.REACT_APP_API_URL}/api/v1/user/login`, {
         email: username,
         password: password,
       })

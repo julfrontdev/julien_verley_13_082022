@@ -7,7 +7,7 @@ const Features = () => {
       <div className="feature-item">
         <img
           className="feature-icon"
-          src="../assets/img/icon-chat.png"
+          src="./assets/img/icon-chat.png"
           alt="Chat Icon"
         />
         <h3 className="feature-item-title">You are our #1 priority</h3>
@@ -18,7 +18,7 @@ const Features = () => {
       </div>
       <div className="feature-item">
         <img
-          src="../assets/img/icon-money.png"
+          src="./assets/img/icon-money.png"
           alt="Chat Icon"
           className="feature-icon"
         />
@@ -27,7 +27,7 @@ const Features = () => {
       </div>
       <div className="feature-item">
         <img
-          src="../assets/img/icon-security.png"
+          src="./assets/img/icon-security.png"
           alt="Chat Icon"
           className="feature-icon"
         />

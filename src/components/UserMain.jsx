@@ -42,7 +42,7 @@ const UserMain = () => {
     e.preventDefault();
     axios
       .put(
-        "http://localhost:3001/api/v1/user/profile",
+        `${process.env.REACT_APP_API_URL}/api/v1/user/profile`,
         {
           firstName: firstName,
           lastName: lastName,

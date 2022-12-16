@@ -5,7 +5,7 @@ const Logo = () => {
     <div className="header-logo">
       <img
         className="header-logo-image"
-        src="../assets/img/logo.png"
+        src="./assets/img/logo.png"
         alt="Argent Bank Logo"
       />
     </div>

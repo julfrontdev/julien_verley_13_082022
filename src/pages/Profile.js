@@ -24,7 +24,7 @@ const Profile = () => {
   useEffect(() => {
     axios
       .post(
-        "http://localhost:3001/api/v1/user/profile",
+        `${process.env.REACT_APP_API_URL}/api/v1/user/profile`,
         {},
         {
           headers: {

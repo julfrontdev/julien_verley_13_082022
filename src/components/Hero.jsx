@@ -4,8 +4,8 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="hero-background-image">
-        {/* Antoine : img : est-ce mieux en CSS ? */}
-        <img src={"../../assets/img/bank-tree.jpeg"} alt="Hero Background" />
+        {/* Possibly img with CSS background option */}
+        <img src={"./assets/img/bank-tree.jpeg"} alt="Hero Background" />
       </div>
       <section className="hero-content">
         <h2 className="sr-only">Promoted content</h2>
