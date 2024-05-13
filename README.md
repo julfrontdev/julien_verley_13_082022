@@ -39,7 +39,7 @@ $ git clone https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API
 
 ### Visit on GitHub pages
 
-https://julfrontdev.github.io/julien_verley_13_01082022/
+https://julienverley.github.io/argentBank/
 
 ### Connect as Tony Stark
 
@@ -61,7 +61,7 @@ https://julfrontdev.github.io/julien_verley_13_01082022/
 - Clone my project:
 
 ```console
-$ git clone https://github.com/julfrontdev/julien_verley_13_01082022
+$ git clone https://github.com/julienverley/argentBank
 
 ```
 
